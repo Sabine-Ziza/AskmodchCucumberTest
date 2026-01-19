@@ -1,4 +1,4 @@
-package stepDefinitions;
+package awesomecucumber.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-import static stepDefinitions.Hooks.driver;
+import static awesomecucumber.stepDefinitions.Hooks.driver;
 
 
 public class CategorySteps {

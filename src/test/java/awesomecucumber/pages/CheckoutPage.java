@@ -1,33 +1,60 @@
-package pages;
+package awesomecucumber.pages;
 
-import domain.BillingPage;
+import awesomecucumber.domain.BillingPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class CheckoutPage {
+
     private WebDriver driver;
     private WebDriverWait wait;
-    @FindBy(id = "billing_first_name") private WebElement billingFirstnameFld;
-    @FindBy(id = "billing_last_name") private WebElement billingLastNameFld;
-    @FindBy(id = "billing_address_1") private WebElement billingAddressOneFld;
-    @FindBy(id = "billing_city") private WebElement billingCityFld;
-    @FindBy(id = "billing_state") private WebElement billingStateDropDown;
-    @FindBy(id = "select2-billing_state-container") private WebElement alternateBillingStateDropDown;
-    @FindBy(id = "billing_postcode") private WebElement billingZipFld;
-    @FindBy(id = "billing_email") private WebElement billingEmailFld;
-    @FindBy(id = "place_order") private WebElement placeOrderBtn;
-    @FindBy(css = ".woocommerce-notice") private WebElement noticeTxt;
-    private final By overlay = By.cssSelector(".blockUI.blockOverlay");
+
+    @FindBy(id = "billing_first_name")
+    private WebElement billingFirstnameFld;
+
+    @FindBy(id = "billing_last_name")
+    private WebElement billingLastNameFld;
+
+    @FindBy(id = "billing_address_1")
+    private WebElement billingAddressOneFld;
+
+    @FindBy(id = "billing_city")
+    private WebElement billingCityFld;
+
+    @FindBy(id = "billing_state")
+    private WebElement billingStateDropDown;
+
+    @FindBy(id = "select2-billing_state-container")
+    private WebElement alternateBillingStateDropDown;
+
+    @FindBy(id = "billing_postcode")
+    private WebElement billingZipFld;
+
+    @FindBy(id = "billing_email")
+    private WebElement billingEmailFld;
+
+    @FindBy(id = "billing_phone")
+    private WebElement billingPhoneFld;
+
+    @FindBy(id = "place_order")
+    private WebElement placeOrderBtn;
+
+    @FindBy(css = ".woocommerce-notice")
+    private WebElement noticeTxt;
+
 
     public CheckoutPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
     }
 
     public CheckoutPage enterBillingFirstName(String billingFirstName){
@@ -64,9 +91,6 @@ public class CheckoutPage {
                 By.xpath("//li[text()='" + billingStateName + "']")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
         e.click();
-
-/*        Select select = new Select(wait.until(ExpectedConditions.visibilityOf(billingStateDropDown)));
-        select.selectByVisibleText(billingStateName);*/
         return this;
     }
 
@@ -84,21 +108,25 @@ public class CheckoutPage {
         return this;
     }
 
+    public CheckoutPage enterBillingPhone(String billingPhone){
+        WebElement e = wait.until(ExpectedConditions.visibilityOf(billingPhoneFld));
+        e.clear();
+        e.sendKeys(billingPhone);
+        return this;
+    }
+
     public CheckoutPage setBillingDetails(BillingPage billingDetails) {
         return enterBillingFirstName(billingDetails.getFirstName()).
                 enterBillingLastName(billingDetails.getLastName()).
                 enterBillingAddressLineOne(billingDetails.getAddress()).
-                enterBillingCity(billingDetails.getStateId()).
-                selectBillingState(billingDetails.getTown()).
-                enterBillingZip(billingDetails.getZipCode()).
-                enterBillingEmail(billingDetails.getEmailAddress());
-                enterBillingEmail(billingDetails.getPhoneNumber());
+                enterBillingCity(billingDetails.getTown()).        // Correct mapping
+                        selectBillingState(billingDetails.getStateId()).   // Correct mapping
+                        enterBillingZip(billingDetails.getZipCode()).
+                enterBillingEmail(billingDetails.getEmailAddress()).
+                enterBillingPhone(billingDetails.getPhoneNumber());
     }
 
-
-
     public CheckoutPage placeOrder(){
-
         wait.until(ExpectedConditions.elementToBeClickable(placeOrderBtn)).click();
         return this;
     }

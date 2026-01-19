@@ -1,26 +1,16 @@
-package stepDefinitions;
+package awesomecucumber.stepDefinitions;
 
-import base.BaseTests;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.AssertJUnit;
 
 
-import java.sql.Driver;
 import java.time.Duration;
-import java.util.List;
-import java.util.Map;
 
 import static org.testng.Assert.assertEquals;
-import static stepDefinitions.Hooks.driver;
 
 public class CartSteps {
 

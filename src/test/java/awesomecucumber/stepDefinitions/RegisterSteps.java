@@ -1,4 +1,4 @@
-package stepDefinitions;
+package awesomecucumber.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.testng.Assert.assertEquals;
-import static stepDefinitions.Hooks.driver;
+import static awesomecucumber.stepDefinitions.Hooks.driver;
 
 public class RegisterSteps {
     @Given("the user is on the registration page")

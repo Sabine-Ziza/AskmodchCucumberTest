@@ -1,14 +1,13 @@
-package stepDefinitions;
+package awesomecucumber.stepDefinitions;
 
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import static stepDefinitions.Hooks.driver;
+import static awesomecucumber.stepDefinitions.Hooks.driver;
 
 
 public class SortingStepdefintions {

@@ -3,6 +3,7 @@ Feature: Login functionality on Askmodch website
   I want to log in through the Account page
   So that I can access my account
 
+
   Scenario Outline: Login with multiple credentials
     Given the user is on the Askmodch homepage
     When the user enters <username> and <password> in the login form

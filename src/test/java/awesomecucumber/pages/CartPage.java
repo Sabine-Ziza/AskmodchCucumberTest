@@ -1,4 +1,4 @@
-package pages;
+package awesomecucumber.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,8 @@ public class CartPage{
         this.driver = driver;
     }
     public void cartCheckout(){
-        driver.findElement(By.className("wc-forward")).click();
+        driver.findElement(By.cssSelector("a.checkout-button")).click();
+
     }
 
 

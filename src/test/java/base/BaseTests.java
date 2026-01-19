@@ -1,6 +1,6 @@
 package base;
 
-import stepDefinitions.Hooks;
+import awesomecucumber.stepDefinitions.Hooks;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;

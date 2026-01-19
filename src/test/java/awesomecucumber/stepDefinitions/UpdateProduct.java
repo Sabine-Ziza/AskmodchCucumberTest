@@ -1,4 +1,4 @@
-package stepDefinitions;
+package awesomecucumber.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +13,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.List;
 
-import static stepDefinitions.Hooks.driver;
+import static awesomecucumber.stepDefinitions.Hooks.driver;
 
 public class UpdateProduct {
     private String productRowXpath(String productName) {
@@ -77,26 +77,6 @@ public class UpdateProduct {
     }
 
 
-//    @When("the user clicks the decrease arrow for {string}")
-//    public void the_user_clicks_the_decrease_arrow_for(String productName) {
-//
-//        WebElement qtyField = driver.findElement(
-//                By.xpath(productRowXpath(productName) + "//input[@type='number']")
-//        );
-//
-//        qtyField.sendKeys(Keys.ARROW_DOWN);
-//    }
-
-
-//    @Then("the quantity should not be less than {int}")
-//    public void the_quantity_should_not_be_less_than(Integer minQuantity) {
-//        WebElement qtyField = driver.findElement(
-//                By.xpath("//form[contains(@class,'cart')]//input[@type='number']")
-//        );
-//
-//        int quantity = Integer.parseInt(qtyField.getAttribute("value"));
-//        Assert.assertTrue(quantity >= minQuantity, "Quantity is less than minimum allowed");
-//    }
 
     @When("the user clicks the remove button for{string}")
     public void removeProduct(String productName) {

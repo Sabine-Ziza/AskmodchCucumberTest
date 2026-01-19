@@ -1,6 +1,5 @@
-package stepDefinitions;
+package awesomecucumber.stepDefinitions;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,17 +7,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import domain.BillingPage;
-import pages.CartPage;
-import pages.CheckoutPage;
-import pages.StorePage;
+import awesomecucumber.domain.BillingPage;
+import awesomecucumber.pages.CartPage;
+import awesomecucumber.pages.CheckoutPage;
+import awesomecucumber.pages.StorePage;
 
 import java.time.Duration;
-import java.util.List;
-import java.util.Map;
 
 import static org.testng.AssertJUnit.assertEquals;
-import static stepDefinitions.Hooks.driver;
+import static awesomecucumber.stepDefinitions.Hooks.driver;
 
 public class PlaceOrderSteps {
     WebDriverWait wait;
@@ -52,17 +49,11 @@ public class PlaceOrderSteps {
     }
     @When("the user fills billing details")
     public void the_user_fills_billing_details(BillingPage billingDetails) {
-        CheckoutPage.
-
-    }
-
-    @When("I'm on the Checkout page")
-    public void i_m_on_the_checkout_page() {
         CheckoutPage checkoutPage = new CheckoutPage(Hooks.driver);
-        checkoutPage.placeOrder();
-
-
+        checkoutPage.setBillingDetails(billingDetails);
     }
+
+
 
 
     @When("I place an order")

@@ -1,9 +1,9 @@
 Feature: sorting functionality
   In order to perform an online shopping
-  As askomdch
+  As askomdich
   online shop customer
   I want to search product successfully by dropDown
-
+  @sortFilter
   Scenario Outline: View products by selecting category from dropdown
     Given the user is on the online shop homepage
     When the user selects <Option> from the sorting dropdown
