@@ -3,7 +3,7 @@ name: pull-request-wokflow-test
 on: 
   pull_request:
     branches:
-      - feature
+      - main
 
 jobs:
   run-pull-request:
