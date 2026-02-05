@@ -1,0 +1,15 @@
+name: pull-request-wokflow-test
+
+on: 
+  pull_request:
+    branches:
+      - feature
+
+jobs:
+  run-pull-request:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: print message
+        run: echo "PR workflow running"
+  
