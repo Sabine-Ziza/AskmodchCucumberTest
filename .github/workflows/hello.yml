@@ -1,0 +1,17 @@
+name: run-on-unit-test
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  test-on-ubuntu:
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: ubuntu-test
+        run: echo "Running tests on Ubuntu"
+   
+  
+      
