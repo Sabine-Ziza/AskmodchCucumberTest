@@ -12,6 +12,9 @@ jobs:
     steps: 
       - name: ubuntu-test
         run: echo "Running tests on Ubuntu"
+
+      - name: print message
+        run : echo "Pr workflow test"
    
   
       
