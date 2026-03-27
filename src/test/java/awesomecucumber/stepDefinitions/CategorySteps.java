@@ -18,8 +18,6 @@ public class CategorySteps {
 
     @Given("the user is on the Askmodich store page")
     public void the_user_is_on_the_askmodich_store_page() {
-//        driver = DriverFactory.getDriver();
-//        driver.get("https://askomdch.com");
         Hooks.homepage.clickStoreLink();
     }
 
